@@ -42,12 +42,12 @@ public class HtmlReportAction implements Action {
 		return htmlReport.getIndexPage();
 	}
 
-	public FilePath getIndexFilePath() {
+	public FilePath getIndexDirectoryPath() {
 		return new FilePath(rootDirectory, htmlReport.getDirectory());
 	}
 
 	public boolean isPresent() throws IOException, InterruptedException {
-		return getIndexFilePath().exists();
+		return getIndexDirectoryPath().exists();
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class HtmlReportAction implements Action {
 	public void doDynamic(StaplerRequest req, StaplerResponse rsp)
 			throws IOException, ServletException {
 		DirectoryBrowserSupport dbs = new DirectoryBrowserSupport(this,
-				getIndexFilePath(), htmlReport.getReportTitle(), "graph.gif",
+				getIndexDirectoryPath(), htmlReport.getReportTitle(), "graph.gif",
 				false);
 		dbs.setIndexFileName(htmlReport.getIndexPage());
 		dbs.generateResponse(req, rsp, this);
