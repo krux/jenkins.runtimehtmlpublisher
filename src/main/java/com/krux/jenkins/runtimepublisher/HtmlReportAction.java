@@ -43,8 +43,7 @@ public class HtmlReportAction implements Action {
 	}
 
 	public FilePath getIndexFilePath() {
-		return new FilePath(new FilePath(rootDirectory,
-				htmlReport.getDirectory()), htmlReport.getIndexPage());
+		return new FilePath(rootDirectory, htmlReport.getDirectory());
 	}
 
 	public boolean isPresent() throws IOException, InterruptedException {

@@ -128,7 +128,7 @@ public class RuntimePublisherBuildWrapper extends BuildWrapper {
 			} catch (InterruptedException e) {
 				build.getActions().remove(action);
 				listener.getLogger().println(
-						"[runtimereportpublisher] Waiter interrupted for report with name "
+						"[runtimereportpublisher] Waiter interrupted for report with name '"
 								+ action.getDisplayName() + "'");
 
 			}
