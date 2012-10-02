@@ -23,6 +23,9 @@ public class HtmlReport extends AbstractDescribableImpl<HtmlReport> {
 	/** Report Title **/
 	private String reportTitle;
 
+	/** Timeout for checking page availability */
+	private Long pageCheckTimeout;
+
 	@DataBoundConstructor
 	public HtmlReport(String directory, String indexPage, String reportTitle) {
 		super();
@@ -74,6 +77,21 @@ public class HtmlReport extends AbstractDescribableImpl<HtmlReport> {
 	 */
 	public void setReportTitle(String reportTitle) {
 		this.reportTitle = reportTitle;
+	}
+
+	/**
+	 * @return the pageCheckTimeout
+	 */
+	public Long getPageCheckTimeout() {
+		return pageCheckTimeout;
+	}
+
+	/**
+	 * @param pageCheckTimeout
+	 *            the pageCheckTimeout to set
+	 */
+	public void setPageCheckTimeout(Long pageCheckTimeout) {
+		this.pageCheckTimeout = pageCheckTimeout;
 	}
 
 	@Extension

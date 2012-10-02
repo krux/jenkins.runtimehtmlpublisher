@@ -55,9 +55,7 @@ public class RuntimePublisherBuildWrapper extends BuildWrapper {
 		final ExecutorService threadPool = Executors
 				.newFixedThreadPool(reportTargets.size());
 		for (HtmlReport target : reportTargets) {
-			HtmlReportAction action = new HtmlReportAction(
-					build.getWorkspace(), target);
-			threadPool.execute(new ReportWaiterThread(action, build, listener));
+			threadPool.execute(new ReportWaiterThread(target, build, listener));
 		}
 		return new Environment() {
 
@@ -103,9 +101,9 @@ public class RuntimePublisherBuildWrapper extends BuildWrapper {
 		private BuildListener listener;
 		private boolean actionSubmitted = false;
 
-		public ReportWaiterThread(HtmlReportAction action, AbstractBuild build,
+		public ReportWaiterThread(HtmlReport htmlReport, AbstractBuild build,
 				BuildListener listener) {
-			this.action = action;
+			this.action = new HtmlReportAction(build.getWorkspace(), htmlReport);
 			this.build = build;
 			this.listener = listener;
 		}
@@ -136,7 +134,7 @@ public class RuntimePublisherBuildWrapper extends BuildWrapper {
 
 		public void waitForPresent() throws IOException, InterruptedException {
 			while (true) {
-				Thread.sleep(3000l);
+				Thread.sleep(action.getPageCheckTimeout());
 				boolean present = action.isPresent();
 				if (present) {
 					if (!actionSubmitted) {

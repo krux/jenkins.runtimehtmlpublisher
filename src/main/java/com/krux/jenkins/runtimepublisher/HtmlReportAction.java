@@ -50,14 +50,18 @@ public class HtmlReportAction implements Action {
 		return getIndexDirectoryPath().exists();
 	}
 
+	public Long getPageCheckTimeout() {
+		return this.htmlReport.getPageCheckTimeout() * 1000;
+	}
+
 	/**
 	 * Serves HTML reports.
 	 */
 	public void doDynamic(StaplerRequest req, StaplerResponse rsp)
 			throws IOException, ServletException {
 		DirectoryBrowserSupport dbs = new DirectoryBrowserSupport(this,
-				getIndexDirectoryPath(), htmlReport.getReportTitle(), "graph.gif",
-				false);
+				getIndexDirectoryPath(), htmlReport.getReportTitle(),
+				"graph.gif", false);
 		dbs.setIndexFileName(htmlReport.getIndexPage());
 		dbs.generateResponse(req, rsp, this);
 

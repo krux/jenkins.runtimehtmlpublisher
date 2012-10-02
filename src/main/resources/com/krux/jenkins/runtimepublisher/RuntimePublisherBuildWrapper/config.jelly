@@ -11,10 +11,12 @@
       <col width="20%"/>
       <col width="20%"/>
       <col width="20%"/>
+      <col width="20%"/>
       <tr>
         <td>Directory</td>
         <td>Index page</td>
-        <td>Report title</td>       
+        <td>Report title</td>
+        <td>Page checking timeout</td>          
         <td/>
       </tr>
     </table>
@@ -26,16 +28,19 @@
       <col width="20%"/>
       <col width="20%"/>
       <col width="20%"/>
+      <col width="20%"/>
       <tr>             
         <td>
           <f:textbox field="directory" default=""/>
         </td>
         <td>
           <f:textbox field="indexPage" default="index.html"/>
-        </td>
-        
+        </td>        
         <td>
           <f:textbox field="reportTitle" default="HTML Report"/>
+        </td>
+        <td>
+          <f:textbox field="pageCheckTimeout" default="3"/>
         </td>                
         
         <td>
