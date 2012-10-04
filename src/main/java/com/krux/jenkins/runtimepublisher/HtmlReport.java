@@ -27,11 +27,13 @@ public class HtmlReport extends AbstractDescribableImpl<HtmlReport> {
 	private Long pageCheckTimeout;
 
 	@DataBoundConstructor
-	public HtmlReport(String directory, String indexPage, String reportTitle) {
+	public HtmlReport(String directory, String indexPage, String reportTitle,
+			Long pageCheckTimeout) {
 		super();
 		this.directory = directory;
 		this.indexPage = indexPage;
 		this.reportTitle = reportTitle;
+		this.pageCheckTimeout = pageCheckTimeout;
 	}
 
 	/**

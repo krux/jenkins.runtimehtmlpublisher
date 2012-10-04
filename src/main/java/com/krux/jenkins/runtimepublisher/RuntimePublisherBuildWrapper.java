@@ -48,6 +48,10 @@ public class RuntimePublisherBuildWrapper extends BuildWrapper {
 
 	}
 
+	/**
+	 * Creates thread pool and thread for each HtmlReport and executes this
+	 * threads
+	 */
 	@Override
 	public Environment setUp(AbstractBuild build, Launcher launcher,
 			BuildListener listener) throws IOException, InterruptedException {
